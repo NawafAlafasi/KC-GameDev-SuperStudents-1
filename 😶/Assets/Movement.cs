@@ -8,6 +8,8 @@ public class Movement : MonoBehaviour
     private float startPosX;
     private float startPosY;
     private bool isBeingHeld = false;
+    // new
+    //private bool dragging = false;
 
     // Start is called before the first frame update
     void Start()
@@ -36,13 +38,14 @@ public class Movement : MonoBehaviour
 
         if (Input.GetMouseButtonDown(0))
         {
+        
             Vector3 mousePos;
             mousePos = Input.mousePosition;
             mousePos = Camera.main.ScreenToWorldPoint(mousePos);
-
+        
             startPosX = mousePos.x - this.transform.localPosition.x;
             startPosY = mousePos.y - this.transform.localPosition.y;
-
+        
             isBeingHeld = true;
         }
     }
@@ -52,14 +55,11 @@ public class Movement : MonoBehaviour
         isBeingHeld = false;
     }
 
-    //void OnMouseClick()
+    //void OnMouseDrag()
     //{
-    //    if(Input.GetMouseButtonDown(0))
-    //    {
-    //       Vector2 mousePos = new Vector2(Input.mousePosition.x, Input.mousePosition.y);
-    //        Vector2 playerPos = Camera.main.ScreenToWorldPoint(mousePos);
-    //        transform.position = playerPos;
-    //    }
+    //    Vector2 mousePos = new Vector2(Input.mousePosition.x, Input.mousePosition.y);
+    //    Vector2 playerPos = Camera.main.ScreenToWorldPoint(mousePos);
+    //    transform.position = playerPos;
     //}
 
 }
